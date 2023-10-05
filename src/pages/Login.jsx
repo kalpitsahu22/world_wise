@@ -5,36 +5,28 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/FakeAuthContext";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function Login() {
-
-  const [email, setEmail] = useState("vikas@example.com");
+  const [email, setEmail] = useState("kalpit@example.com");
   const [password, setPassword] = useState("qwerty");
-  const {login,isAuthenticated} = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(()=>{
- 
-    if(isAuthenticated)
-    {
-       navigate("/app",{replace: true});
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/app", { replace: true });
     }
-},[isAuthenticated,navigate])
+  }, [isAuthenticated, navigate]);
 
-
-  function userLogin(e)
-  {
-     e.preventDefault();
-     if(email && password)
-     {
-     login(email,password);
-     <Navigate to={"/app"} />
-     }
+  function userLogin(e) {
+    e.preventDefault();
+    if (email && password) {
+      login(email, password);
+      <Navigate to={"/app"} />;
+    }
   }
   return (
-     <main className={styles.login}>
-        <PageNav />
+    <main className={styles.login}>
+      <PageNav />
       <form onSubmit={userLogin} className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
@@ -56,8 +48,10 @@ export default function Login() {
           />
         </div>
 
-        <div  >
-          <button type="submit" className={styles.loginButton}>Login</button>
+        <div>
+          <button type="submit" className={styles.loginButton}>
+            Login
+          </button>
         </div>
       </form>
     </main>
