@@ -1,6 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
 
-
 const AuthContext = createContext();
 
 const initialState = {
@@ -19,14 +18,12 @@ function reducer(state, action) {
   }
 }
 
-
 const FAKE_USER = {
-    name: "Vikas",
-    email: "vikas@example.com",
-    password: "qwerty",
-    avatar: "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
-  };
-  
+  name: "Kalpit",
+  email: "kalpit@example.com",
+  password: "qwerty",
+  avatar: "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
+};
 
 function AuthProvider({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
